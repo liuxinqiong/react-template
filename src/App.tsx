@@ -1,11 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { Button, DatePicker } from "antd";
+import { hot } from "react-hot-loader";
+import { Link, BrowserRouter as Router } from "react-router-dom";
+import { FormattedMessage, useIntl } from "react-intl";
 
 const App: React.FC = () => {
+  const [count, setCount] = useState(0);
+  const intl = useIntl();
+  console.log(intl);
   return (
     <div className="App">
       <header className="App-header">
+        <Button
+          type="primary"
+          onClick={() => {
+            setCount(count + 1);
+          }}
+        >
+          Button1
+        </Button>
+        <div>{count}</div>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
@@ -16,11 +32,15 @@ const App: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          <FormattedMessage id="app.user.button.login"></FormattedMessage>
         </a>
+        <DatePicker></DatePicker>
+        {/* <Router>
+          <Link to="/"></Link>
+        </Router> */}
       </header>
     </div>
   );
-}
+};
 
-export default App;
+export default hot(module)(App);
