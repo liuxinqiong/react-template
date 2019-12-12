@@ -1,21 +1,21 @@
-import React, { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
-import { Button, DatePicker } from 'antd'
-import { hot } from 'react-hot-loader'
-import { Link, BrowserRouter as Router } from 'react-router-dom'
-import { FormattedMessage, useIntl } from 'react-intl'
-import { setLocale } from 'src/locales/locale'
+import React, { useState } from 'react';
+import { Button, DatePicker } from 'antd';
+import { hot } from 'react-hot-loader';
+// import { Link, BrowserRouter as Router } from "react-router-dom";
+import { FormattedMessage } from 'react-intl';
+import { setLocale } from 'src/locales/locale';
+import styles from './App.less';
+import logo from './logo.svg';
 
 const App: React.FC = () => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className={styles.App}>
+      <header className={styles['App-header']}>
         <Button
           type="primary"
           onClick={() => {
-            setCount(count + 1)
+            setCount(count + 1);
           }}
         >
           Button1
@@ -23,7 +23,7 @@ const App: React.FC = () => {
         <Button
           type="primary"
           onClick={() => {
-            setLocale('en-US', false)
+            setLocale('en-US', false);
           }}
         >
           英语
@@ -33,6 +33,7 @@ const App: React.FC = () => {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <p>learn react</p>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -47,7 +48,7 @@ const App: React.FC = () => {
         </Router> */}
       </header>
     </div>
-  )
-}
+  );
+};
 
-export default hot(module)(App)
+export default hot(module)(App);
