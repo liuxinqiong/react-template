@@ -10,15 +10,15 @@ import logo from './logo.svg';
 const App: React.FC = () => {
   const [count, setCount] = useState(0);
   return (
-    <div className={styles.App}>
-      <header className={styles['App-header']}>
+    <div className={styles.app}>
+      <header className={styles.appHeader}>
         <Button
           type="primary"
           onClick={() => {
             setCount(count + 1);
           }}
         >
-          Button1
+          Button
         </Button>
         <Button
           type="primary"
@@ -29,13 +29,13 @@ const App: React.FC = () => {
           英语
         </Button>
         <div>{count}</div>
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className={styles.appLogo} alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <p>learn react</p>
         <a
-          className="App-link"
+          className={styles.appLink}
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"

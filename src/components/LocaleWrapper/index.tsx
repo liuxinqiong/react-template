@@ -21,17 +21,17 @@ const localeInfo: any = {
   },
 };
 
+function getAppLocale() {
+  return localeInfo[getLocale()] || localeInfo[defaultLocaleCode];
+}
+
 class LocaleWrapper extends React.Component {
   state = {
     locale: getLocale(),
   };
 
-  getAppLocale() {
-    return localeInfo[this.state.locale] || localeInfo[defaultLocaleCode];
-  }
-
   reloadAppLocale = () => {
-    const appLocale = this.getAppLocale();
+    const appLocale = getAppLocale();
     // didn't need it now?
     // moment.locale(appLocale.locale);
     this.setState({
@@ -41,7 +41,7 @@ class LocaleWrapper extends React.Component {
 
   render() {
     const { locale } = this.state;
-    const appLocale = this.getAppLocale();
+    const appLocale = getAppLocale();
     const LangContext = createContext({});
     const langContextValue = {
       locale,
