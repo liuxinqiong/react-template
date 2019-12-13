@@ -1,8 +1,15 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-param-reassign */
-const { override, fixBabelImports, addLessLoader, adjustStyleLoaders } = require('customize-cra');
+const {
+  override,
+  fixBabelImports,
+  addLessLoader,
+  adjustStyleLoaders,
+  addWebpackAlias,
+} = require('customize-cra');
 const rewireReactHotLoader = require('react-app-rewire-hot-loader');
 const slash = require('slash');
+const path = require('path');
 
 module.exports = override(
   fixBabelImports('import', {
@@ -13,6 +20,9 @@ module.exports = override(
   addLessLoader({
     javascriptEnabled: true,
     modifyVars: {},
+  }),
+  addWebpackAlias({
+    '@': path.resolve(__dirname, 'src'),
   }),
   adjustStyleLoaders(({ use: [, css] }) => {
     css.options.modules = {
@@ -25,8 +35,8 @@ module.exports = override(
         }
         const match = context.resourcePath.match(/src(.*)/);
         if (match && match[1]) {
-          const path = match[1].replace('.less', '');
-          const arr = slash(path)
+          const relativePath = match[1].replace('.less', '');
+          const arr = slash(relativePath)
             .split('/')
             .map(a => a.replace(/([A-Z])/g, '-$1'))
             .map(a => a.toLowerCase());

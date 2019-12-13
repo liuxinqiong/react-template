@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import LocaleWrapper from 'src/components/LocaleWrapper';
+import LocaleWrapper from '@/components/LocaleWrapper';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 

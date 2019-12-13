@@ -3,7 +3,7 @@ import { Button, DatePicker } from 'antd';
 import { hot } from 'react-hot-loader';
 // import { Link, BrowserRouter as Router } from "react-router-dom";
 import { FormattedMessage } from 'react-intl';
-import { setLocale } from 'src/locales/locale';
+import { setLocale } from '@/locales/locale';
 import styles from './App.less';
 import logo from './logo.svg';
 

@@ -1,12 +1,12 @@
 import React, { createContext } from 'react';
 import { IntlProvider } from 'react-intl';
 import { ConfigProvider } from 'antd';
-import { getLocale, setLocaleContext, defaultLocaleCode } from 'src/locales/locale';
+import { getLocale, setLocaleContext, defaultLocaleCode } from '@/locales/locale';
 
-const messageEn = require('src/locales/en-US').default;
-const messageZh = require('src/locales/zh-CN').default;
 const antdEn = require('antd/lib/locale-provider/en_US').default;
 const antdZh = require('antd/lib/locale-provider/zh_CN').default;
+const messageEn = require('@/locales/en-US').default;
+const messageZh = require('@/locales/zh-CN').default;
 
 const localeInfo: any = {
   'en-US': {
