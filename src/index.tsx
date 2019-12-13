@@ -1,14 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { Provider } from 'react-redux';
+
 import LocaleWrapper from '@/components/LocaleWrapper';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import '@/styles/index.less';
+import configureStore from '@/store';
 
 ReactDOM.render(
-  <LocaleWrapper>
-    <App />
-  </LocaleWrapper>,
+  <Provider store={configureStore()}>
+    <LocaleWrapper>
+      <App />
+    </LocaleWrapper>
+  </Provider>,
   document.getElementById('root'),
 );
 
