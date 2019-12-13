@@ -1,9 +1,12 @@
-import { Context } from 'react';
+interface LocaleContextValue {
+  locale: string;
+  reloadAppLocale: Function;
+}
 
 const localeKey = 'locale';
 const defaultLocaleCode = 'zh-CN';
 
-let localeContext: any;
+let localeContext: LocaleContextValue;
 
 function setLocale(lang: string, realReload = true) {
   const localeExp = new RegExp('^([a-z]{2})-?([A-Z]{2})?$');
@@ -37,8 +40,8 @@ function getLocale() {
   return queryLang || localLang || browserLang || defaultLocaleCode;
 }
 
-function setLocaleContext(context: Context<{ locale: string; reloadAppLocale: Function }>) {
-  localeContext = context;
+function setLocaleContext(localeContextValue: LocaleContextValue) {
+  localeContext = localeContextValue;
 }
 
 export { setLocale, getLocale, setLocaleContext, defaultLocaleCode };

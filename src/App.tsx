@@ -6,6 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import { setLocale } from '@/locales/locale';
 import styles from './App.less';
 import logo from './logo.svg';
+import IconFont from '@/components/IconFont';
 
 const App: React.FC = () => {
   const [count, setCount] = useState(0);
@@ -28,6 +29,7 @@ const App: React.FC = () => {
         >
           英语
         </Button>
+        <IconFont type="icon-edit-copy"></IconFont>
         <div>{count}</div>
         <img src={logo} className={styles.appLogo} alt="logo" />
         <p>
