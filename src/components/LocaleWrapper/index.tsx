@@ -1,7 +1,7 @@
 import React, { createContext } from 'react';
-import { IntlProvider } from 'react-intl';
+import { IntlProvider, useIntl } from 'react-intl';
 import { ConfigProvider } from 'antd';
-import { getLocale, setLocaleContext, defaultLocaleCode } from '@/locales/locale';
+import { getLocale, _setLocaleContext, defaultLocaleCode, _setIntlObject } from '@/locales/locale';
 
 const antdEn = require('antd/lib/locale-provider/en_US').default;
 const antdZh = require('antd/lib/locale-provider/zh_CN').default;
@@ -19,6 +19,12 @@ const localeInfo: any = {
     messages: messageZh,
     antd: antdZh,
   },
+};
+
+const InjectedWrapper = (props: any) => {
+  const intl = useIntl();
+  _setIntlObject(intl);
+  return props.children;
 };
 
 function getAppLocale() {
@@ -49,14 +55,16 @@ class LocaleWrapper extends React.Component {
     };
     const reactIntl = (
       <IntlProvider locale={locale} messages={appLocale.messages}>
-        <LangContext.Provider value={langContextValue}>
-          <LangContext.Consumer>
-            {(value: any) => {
-              setLocaleContext(value);
-              return this.props.children;
-            }}
-          </LangContext.Consumer>
-        </LangContext.Provider>
+        <InjectedWrapper>
+          <LangContext.Provider value={langContextValue}>
+            <LangContext.Consumer>
+              {(value: any) => {
+                _setLocaleContext(value);
+                return this.props.children;
+              }}
+            </LangContext.Consumer>
+          </LangContext.Provider>
+        </InjectedWrapper>
       </IntlProvider>
     );
     return <ConfigProvider locale={appLocale.antd}>{reactIntl}</ConfigProvider>;

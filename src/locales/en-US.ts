@@ -4,7 +4,7 @@ import globalFooter from './en-US/globalFooter';
 import helper from './en-US/helper';
 
 export default {
-  'app.user.button.login': 'login',
+  'app.welcome': 'welcome',
   ...component,
   ...globalHeader,
   ...globalFooter,

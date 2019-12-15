@@ -4,7 +4,7 @@ import globalFooter from './zh-CN/globalFooter';
 import helper from './zh-CN/helper';
 
 export default {
-  'app.user.button.login': '登录',
+  'app.welcome': '欢迎',
   ...component,
   ...globalHeader,
   ...globalFooter,

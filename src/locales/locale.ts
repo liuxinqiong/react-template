@@ -1,3 +1,6 @@
+import * as ReactIntl from 'react-intl';
+import { IntlShape } from 'react-intl';
+
 interface LocaleContextValue {
   locale: string;
   reloadAppLocale: Function;
@@ -7,6 +10,11 @@ const localeKey = 'locale';
 const defaultLocaleCode = 'zh-CN';
 
 let localeContext: LocaleContextValue;
+let intl: IntlShape;
+
+function _setIntlObject(theIntl: IntlShape) {
+  intl = theIntl;
+}
 
 function setLocale(lang: string, realReload = true) {
   const localeExp = new RegExp('^([a-z]{2})-?([A-Z]{2})?$');
@@ -40,8 +48,16 @@ function getLocale() {
   return queryLang || localLang || browserLang || defaultLocaleCode;
 }
 
-function setLocaleContext(localeContextValue: LocaleContextValue) {
+function _setLocaleContext(localeContextValue: LocaleContextValue) {
   localeContext = localeContextValue;
 }
 
-export { setLocale, getLocale, setLocaleContext, defaultLocaleCode };
+export {
+  setLocale,
+  getLocale,
+  _setLocaleContext,
+  _setIntlObject,
+  defaultLocaleCode,
+  intl,
+  ReactIntl,
+};
