@@ -68,6 +68,12 @@ request.interceptors.response.use(
         description: errorText,
       });
       // TODO:未登录（401）且不在登录页，则跳转登录页
+    } else if (!response) {
+      notification.error({
+        key: AppConstant.REQUEST_ERROR_NOTIFICATION_KEY,
+        description: '您的网络发生异常，无法连接服务器',
+        message: '网络异常',
+      });
     }
     return Promise.reject(error);
   },

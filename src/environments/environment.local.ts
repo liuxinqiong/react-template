@@ -1,3 +1,4 @@
 export const environment = {
-  apiUrl: '/api',
+  envName: 'local',
+  apiUrl: '//10.0.0.132:5000',
 };

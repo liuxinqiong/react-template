@@ -1,13 +1,21 @@
-import React from 'react';
-import styles from './App.less';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
+import styles from './App.less';
 import SelectLang from '@/components/SelectLang';
 import { ReactIntl } from '@/locales/locale';
+import { getProject } from '@/store/modules/project/actions';
 
 const { FormattedMessage } = ReactIntl;
 
 const App: React.FC = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProject('gnqg'));
+  }, [dispatch]);
+
   return (
     <div className={styles.app}>
       <header className={styles.appHeader}>

@@ -1,5 +1,3 @@
-export const USER = {};
-
-export const PROJECT = {};
-
-export const PLAN = {};
+export const PROJECT = {
+  BASE: '/v1/projects1/:id',
+};
