@@ -27,7 +27,7 @@ const codeMessage = {
   504: '网关超时。',
 };
 
-const axiosInstance = axios.create({
+const request = axios.create({
   baseURL: environment.apiUrl,
   withCredentials: true,
 });
@@ -46,7 +46,7 @@ function addRequestHeaderToken(config: AxiosRequestConfig) {
   }
 }
 
-axiosInstance.interceptors.request.use(config => {
+request.interceptors.request.use(config => {
   addRequestHeaderToken(config);
   config.params = StyleTransform.convertKeysToSnakeCase(config.params);
   if (!(config.data instanceof FormData)) {
@@ -55,7 +55,7 @@ axiosInstance.interceptors.request.use(config => {
   return config;
 });
 
-axiosInstance.interceptors.response.use(
+request.interceptors.response.use(
   (response: AxiosResponse) => StyleTransform.convertKeysToCamelCase(response.data),
   error => {
     const { response, data } = error;
@@ -72,3 +72,15 @@ axiosInstance.interceptors.response.use(
     return Promise.reject(error);
   },
 );
+
+export function parseUrlWithUrlParams(url: string, params: { [key: string]: any }) {
+  let parsedUrl = url;
+  const keys = Object.keys(params);
+  keys.forEach(key => {
+    const reg = new RegExp(`:${key}`, 'g');
+    parsedUrl = parsedUrl.replace(reg, params[key]);
+  });
+  return parsedUrl;
+}
+
+export default request;
