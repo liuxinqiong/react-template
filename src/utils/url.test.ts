@@ -1,4 +1,4 @@
-import { UrlUtil } from './urlUtil';
+import { UrlUtil } from './url';
 
 const { isUrl } = UrlUtil;
 

@@ -1,4 +1,4 @@
-import { LocalStorageConstant } from '@/constants/localStorage.constant';
+import { LocalStorageConstant } from '@/constants/localStorage';
 
 const JWT_TOKEN_REG = new RegExp('^([\\w-]+(\\.)){2}[\\w-]+$');
 

@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-escape */
-import { TypeUtil } from './typeUtil';
+import { TypeUtil } from './type';
 
 export class StyleTransform {
   static camelCaseToSnakeCase(s: string) {

@@ -2,9 +2,9 @@ import { notification } from 'antd';
 import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
 
 import environment, { isLocalEnvironment } from '@/environments';
-import { AppConstant } from '@/constants/app.constant';
-import { JwtUtil } from '@/utils/jwtUtil';
-import { UrlUtil } from '@/utils/urlUtil';
+import { AppConstant } from '@/constants/app';
+import { JwtUtil } from '@/utils/jwt';
+import { UrlUtil } from '@/utils/url';
 import { StyleTransform } from '@/utils/styleTransform';
 
 const codeMessage = {
