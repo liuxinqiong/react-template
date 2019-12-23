@@ -1,6 +1,6 @@
-import { environment as dev } from './environment.dev';
-import { environment as prod } from './environment.prod';
-import { environment as local } from './environment.local';
+import { environment as dev } from './environmentDev';
+import { environment as prod } from './environmentProd';
+import { environment as local } from './environmentLocal';
 
 const environmentConfig = {
   dev,
