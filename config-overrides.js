@@ -48,6 +48,12 @@ module.exports = override(
     // css-loader old syntax，unused
     delete css.options.localIdentName;
   }),
+  // enable absolute import path for styles
+  config => {
+    config.resolve.modules = [path.resolve(__dirname, 'src'), ...config.resolve.modules];
+    return config;
+  },
+  // enable hot reload
   config => {
     if (config.mode === 'development') {
       config.resolve.alias['react-dom'] = '@hot-loader/react-dom';
