@@ -1,5 +1,4 @@
 import * as ReactIntl from 'react-intl';
-import { IntlShape } from 'react-intl';
 
 interface LocaleContextValue {
   locale: string;
@@ -10,9 +9,11 @@ const localeKey = 'locale';
 const defaultLocaleCode = 'zh-CN';
 
 let localeContext: LocaleContextValue;
-let intl: IntlShape;
+/* eslint-disable import/no-mutable-exports */
+let intl: ReactIntl.IntlShape;
 
-function _setIntlObject(theIntl: IntlShape) {
+/* eslint-disable no-underscore-dangle */
+function _setIntlObject(theIntl: ReactIntl.IntlShape) {
   intl = theIntl;
 }
 
@@ -48,6 +49,7 @@ function getLocale() {
   return queryLang || localLang || browserLang || defaultLocaleCode;
 }
 
+/* eslint-disable no-underscore-dangle */
 function _setLocaleContext(localeContextValue: LocaleContextValue) {
   localeContext = localeContextValue;
 }
