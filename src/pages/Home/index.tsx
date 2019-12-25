@@ -2,14 +2,14 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import styles from './App.less';
+import styles from './index.less';
 import SelectLang from '@/components/SelectLang';
 import { ReactIntl } from '@/locales/locale';
 import { getProject } from '@/store/modules/project/actions';
 
 const { FormattedMessage } = ReactIntl;
 
-const App: React.FC = () => {
+const Home: React.FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,4 +28,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Home;

@@ -1,3 +1,4 @@
+import { createContext } from 'react';
 import * as ReactIntl from 'react-intl';
 
 interface LocaleContextValue {
@@ -54,6 +55,10 @@ function _setLocaleContext(localeContextValue: LocaleContextValue) {
   localeContext = localeContextValue;
 }
 
+const LangContext = createContext({
+  locale: getLocale(),
+});
+
 export {
   setLocale,
   getLocale,
@@ -62,4 +67,5 @@ export {
   defaultLocaleCode,
   intl,
   ReactIntl,
+  LangContext,
 };

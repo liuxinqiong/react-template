@@ -1,7 +1,13 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import { IntlProvider, useIntl } from 'react-intl';
 import { ConfigProvider } from 'antd';
-import { getLocale, _setLocaleContext, defaultLocaleCode, _setIntlObject } from '@/locales/locale';
+import {
+  getLocale,
+  _setLocaleContext,
+  defaultLocaleCode,
+  _setIntlObject,
+  LangContext,
+} from '@/locales/locale';
 
 const antdEn = require('antd/lib/locale-provider/en_US').default;
 const antdZh = require('antd/lib/locale-provider/zh_CN').default;
@@ -48,7 +54,6 @@ class LocaleWrapper extends React.Component {
   render() {
     const { locale } = this.state;
     const appLocale = getAppLocale();
-    const LangContext = createContext({});
     const langContextValue = {
       locale,
       reloadAppLocale: this.reloadAppLocale,
