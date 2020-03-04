@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import * as serviceWorker from './serviceWorker';
 import '@/styles/global.less';
-import '@/styles/index.less';
 import App from '@/App';
 
 ReactDOM.render(<App />, document.getElementById('root'));
