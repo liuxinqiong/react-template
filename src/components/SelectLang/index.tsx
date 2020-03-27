@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Icon, Menu, Dropdown } from 'antd';
+import { GlobalOutlined } from '@ant-design/icons';
+import { Menu, Dropdown } from 'antd';
 import { ClickParam } from 'antd/es/menu';
 
 import { intl, getLocale, setLocale } from '@/locales/locale';
@@ -40,7 +41,7 @@ const SelectLang: React.FC<SelectLangProps> = props => {
   return (
     <Dropdown overlay={langMenu} placement="bottomRight">
       <span className={classNames(styles.dropDown, className)}>
-        <Icon type="global" title={formatMessage({ id: 'component.selectLang.lang' })} />
+        <GlobalOutlined title={formatMessage({ id: 'component.selectLang.lang' })} />
       </span>
     </Dropdown>
   );
