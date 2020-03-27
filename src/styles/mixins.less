@@ -59,3 +59,12 @@
     content: '';
   }
 }
+
+.scroll() {
+  overflow: hidden;
+  &:hover {
+    // 如果不支持 overlay 降级成 auto 方案
+    overflow: auto;
+    overflow: overlay;
+  }
+}

@@ -76,6 +76,7 @@
     "cross-env": "^6.0.3",
     "customize-cra": "^0.9.1",
     "husky": "^3.1.0",
+    "jest-json-reporter2": "^1.1.0",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "lint-staged": "^9.5.0",
@@ -109,6 +110,17 @@
   "jest": {
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1"
-    }
+    },
+    "reporters": [
+      "default",
+      [
+        "jest-json-reporter2",
+        {
+          "outputDir": "./coverage",
+          "outputFile": "test-results.json",
+          "fullOutput": true
+        }
+      ]
+    ]
   }
 }

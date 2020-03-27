@@ -3,7 +3,7 @@ import { TypeUtil } from './type';
 
 export class StyleTransform {
   static camelCaseToSnakeCase(s: string) {
-    return s.replace(/([A-Z])/g, (m, p1) => `_${p1.toLowerCase()}`).replace(/^_/, '');
+    return s.replace(/([A-Z][a-z])/g, (m, p1) => `_${p1.toLowerCase()}`).replace(/^_/, '');
   }
 
   static snakeCaseToCamelCase(s: string) {

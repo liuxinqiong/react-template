@@ -3,8 +3,8 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { Spin } from 'antd';
 
 const Home = lazy(() => import('@/pages/Home'));
-const Info = lazy(() => import('@/pages/Info'));
-const Cad = lazy(() => import('@/pages/Cad'));
+const Page1 = lazy(() => import('@/pages/Page1'));
+const Page2 = lazy(() => import('@/pages/Page2'));
 const PageNotFound = lazy(() => import('@/pages/404'));
 
 export default function RootRoute() {
@@ -13,8 +13,8 @@ export default function RootRoute() {
       <Suspense fallback={<Spin />}>
         <Switch>
           <Route exact path="/" component={Home}></Route>
-          <Route path="/info" component={Info}></Route>
-          <Route path="/cad" component={Cad}></Route>
+          <Route path="/page1" component={Page1}></Route>
+          <Route path="/page2" component={Page2}></Route>
           <Route component={PageNotFound}></Route>
         </Switch>
       </Suspense>

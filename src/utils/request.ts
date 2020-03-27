@@ -61,7 +61,7 @@ request.interceptors.response.use(
     const { response, data } = error;
     if (response && response.status) {
       // 如果后台有传回 message，则优先使用
-      const errorText = data.message || codeMessage[response.status] || response.statusText;
+      const errorText = data?.message || codeMessage[response.status] || response.statusText;
       notification.error({
         key: AppConstant.REQUEST_ERROR_NOTIFICATION_KEY,
         message: '请求错误',
