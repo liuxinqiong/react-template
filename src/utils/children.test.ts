@@ -1,4 +1,4 @@
-import { toArray } from '@/frontend_utils/react/children';
+import { toArray } from './children';
 
 it('should return empty array when children is undefined', (): void => {
   expect(toArray(undefined)).toEqual([]);

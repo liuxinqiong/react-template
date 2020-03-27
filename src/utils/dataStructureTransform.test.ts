@@ -1,4 +1,4 @@
-import { translateArrayToByIdObject } from '@/frontend_utils/dataStructureTransform';
+import { translateArrayToByIdObject } from './dataStructureTransform';
 
 it('should return right object', (): void => {
   expect(
