@@ -17,3 +17,8 @@ LICENSE
 *.lock
 yarn-error.log
 .history
+*.txt
+*.ico
+.gitkeep
+*.jpeg
+*.jpg
