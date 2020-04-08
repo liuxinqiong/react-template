@@ -1,10 +1,10 @@
-import { LocalStorageConstant } from '@/constants/localStorage';
+import { LocalStorageConfig } from '@/config/localStorage';
 
 const JWT_TOKEN_REG = new RegExp('^([\\w-]+(\\.)){2}[\\w-]+$');
 
 export class JwtUtil {
   static getJwtToken() {
-    const token = localStorage.getItem(LocalStorageConstant.JWT_TOKEN_KEY);
+    const token = localStorage.getItem(LocalStorageConfig.JWT_TOKEN_KEY);
     if (token && JWT_TOKEN_REG.test(token)) {
       return token;
     }
@@ -13,11 +13,11 @@ export class JwtUtil {
 
   static setJwtToken(token: string) {
     if (JWT_TOKEN_REG.test(token)) {
-      localStorage.setItem(LocalStorageConstant.JWT_TOKEN_KEY, token);
+      localStorage.setItem(LocalStorageConfig.JWT_TOKEN_KEY, token);
     }
   }
 
   static clearJwtToken() {
-    localStorage.removeItem(LocalStorageConstant.JWT_TOKEN_KEY);
+    localStorage.removeItem(LocalStorageConfig.JWT_TOKEN_KEY);
   }
 }

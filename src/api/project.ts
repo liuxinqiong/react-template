@@ -1,5 +1,5 @@
 import request, { parseUrlWithUrlParams } from '@/utils/request';
-import { PROJECT } from '@/constants/url';
+import { PROJECT } from '@/config/url';
 
 export default class ProjectApi {
   public static getProjectById(projectId: string) {

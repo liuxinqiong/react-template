@@ -2,7 +2,7 @@ import { notification } from 'antd';
 import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
 
 import environment, { isLocalEnvironment } from '@/environments';
-import { AppConstant } from '@/constants/app';
+import { AppConfig } from '@/config/app';
 import { JwtUtil } from '@/utils/jwt';
 import { UrlUtil } from '@/utils/url';
 import { StyleTransform } from '@/utils/styleTransform';
@@ -41,7 +41,7 @@ function addRequestHeaderToken(config: AxiosRequestConfig) {
   const token = JwtUtil.getJwtToken();
   if (token && isSameOrigin) {
     config.headers = {
-      [AppConstant.JWT_HEADER_NAME]: `Bearer ${token}`,
+      [AppConfig.JWT_HEADER_NAME]: `Bearer ${token}`,
     };
   }
 }
@@ -63,14 +63,14 @@ request.interceptors.response.use(
       // 如果后台有传回 message，则优先使用
       const errorText = data?.message || codeMessage[response.status] || response.statusText;
       notification.error({
-        key: AppConstant.REQUEST_ERROR_NOTIFICATION_KEY,
+        key: AppConfig.REQUEST_ERROR_NOTIFICATION_KEY,
         message: '请求错误',
         description: errorText,
       });
       // TODO:未登录（401）且不在登录页，则跳转登录页
     } else if (!response) {
       notification.error({
-        key: AppConstant.REQUEST_ERROR_NOTIFICATION_KEY,
+        key: AppConfig.REQUEST_ERROR_NOTIFICATION_KEY,
         description: '您的网络发生异常，无法连接服务器',
         message: '网络异常',
       });
