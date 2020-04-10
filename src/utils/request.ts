@@ -7,6 +7,8 @@ import { JwtUtil } from '@/utils/jwt';
 import { UrlUtil } from '@/utils/url';
 import { StyleTransform } from '@/utils/styleTransform';
 
+export const { CancelToken } = axios;
+
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
   201: '新建或修改数据成功。',
@@ -58,7 +60,7 @@ request.interceptors.request.use(config => {
 request.interceptors.response.use(
   (response: AxiosResponse) => StyleTransform.convertKeysToCamelCase(response.data),
   error => {
-    const { response, data } = error;
+    const { response, data, message } = error;
     if (response && response.status) {
       // 如果后台有传回 message，则优先使用
       const errorText = data?.message || codeMessage[response.status] || response.statusText;
@@ -68,7 +70,7 @@ request.interceptors.response.use(
         description: errorText,
       });
       // TODO:未登录（401）且不在登录页，则跳转登录页
-    } else if (!response) {
+    } else if (!response && message !== 'cancel') {
       notification.error({
         key: AppConfig.REQUEST_ERROR_NOTIFICATION_KEY,
         description: '您的网络发生异常，无法连接服务器',
