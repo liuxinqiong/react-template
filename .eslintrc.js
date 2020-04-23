@@ -5,5 +5,7 @@ module.exports = {
     'import/no-unresolved': [2, { ignore: ['@'] }],
     'no-param-reassign': [2, { props: false }],
     'no-continue': 'off',
+    'no-unused-expressions': 'off',
+    '@typescript-eslint/no-unused-expressions': 'error',
   },
 };
