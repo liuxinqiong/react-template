@@ -4,7 +4,7 @@ import { GlobalOutlined } from '@ant-design/icons';
 import { Menu, Dropdown } from 'antd';
 import { ClickParam } from 'antd/es/menu';
 
-import { intl, getLocale, setLocale } from '@/locales/locale';
+import { intl, getLocale, setLocale } from '@/components/LocaleWrapper/locale';
 
 import styles from './index.less';
 

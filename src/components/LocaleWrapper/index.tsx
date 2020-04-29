@@ -7,7 +7,7 @@ import {
   defaultLocaleCode,
   _setIntlObject,
   LangContext,
-} from '@/locales/locale';
+} from './locale';
 
 const antdEn = require('antd/lib/locale-provider/en_US').default;
 const antdZh = require('antd/lib/locale-provider/zh_CN').default;
