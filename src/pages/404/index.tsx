@@ -13,10 +13,10 @@ export default function NotFountPage() {
       extra={
         <Link to="/">
           <Button type="primary">
-            <FormattedMessage id="app.helper.button.back-home"></FormattedMessage>
+            <FormattedMessage id="app.helper.button.back-home" />
           </Button>
         </Link>
       }
-    ></Result>
+    />
   );
 }

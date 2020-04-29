@@ -12,10 +12,10 @@ export default function RootRoute() {
     <BrowserRouter>
       <Suspense fallback={<Spin />}>
         <Switch>
-          <Route exact path="/" component={Home}></Route>
-          <Route path="/page1" component={Page1}></Route>
-          <Route path="/page2" component={Page2}></Route>
-          <Route component={PageNotFound}></Route>
+          <Route exact path="/" component={Home} />
+          <Route path="/page1" component={Page1} />
+          <Route path="/page2" component={Page2} />
+          <Route component={PageNotFound} />
         </Switch>
       </Suspense>
     </BrowserRouter>

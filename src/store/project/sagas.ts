@@ -1,7 +1,7 @@
 import { takeLatest, put, call, fork } from 'redux-saga/effects';
 
-import * as types from './types';
 import ProjectApi from '@/api/project';
+import * as types from './types';
 
 export interface GetProjectAction {
   type: typeof types.GET_PROJECT_REQUEST;
