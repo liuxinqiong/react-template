@@ -22,3 +22,6 @@ yarn-error.log
 .gitkeep
 *.jpeg
 *.jpg
+/coverage
+package-lock.json
+tsconfig.json

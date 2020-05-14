@@ -76,4 +76,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 npm install @babel/core --save-dev
 ```
 
-结果问题得到解决，查看升级后 `react-script@3.3.0` 后 `@babel/core` 的版本其实是有更新的，但目前不明白为什么直接升级 `react-script` 没有生效，考虑到该包应该由 `react-script` 维护，因此模板目前未加入 `@babel/core` 依赖，而是选择跟踪这个问题，最终交由 `react-script` 来解决。
+结果问题得到解决，查看升级后 `react-script@3.3.0` 后 `@babel/core` 的版本其实是有更新的，但目前不明白为什么直接升级 `react-script` 没有生效，考虑到该包应由 `react-script` 维护，因此模板目前未加入 `@babel/core` 依赖，而是选择跟踪这个问题，最终交由 `react-script` 来解决。
