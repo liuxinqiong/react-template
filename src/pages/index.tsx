@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
+
 import PageLoading from '@/components/PageLoading';
 
 const Home = lazy(() => import('@/pages/Home'));

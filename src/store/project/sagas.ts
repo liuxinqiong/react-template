@@ -1,6 +1,7 @@
 import { takeLatest, put, call, fork } from 'redux-saga/effects';
 
 import ProjectApi from '@/api/project';
+
 import * as types from './types';
 
 export interface GetProjectAction {

@@ -7,5 +7,12 @@ module.exports = {
     'no-continue': 'off',
     'no-unused-expressions': 'off',
     '@typescript-eslint/no-unused-expressions': 'error',
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'internal', 'external', ['parent', 'sibling', 'index']],
+        'newlines-between': 'always',
+      },
+    ],
   },
 };

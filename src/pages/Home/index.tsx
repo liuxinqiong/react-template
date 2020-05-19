@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import SelectLang from '@/components/SelectLang';
 import { ReactIntl } from '@/components/LocaleWrapper/locale';
+
 import styles from './index.less';
 
 const { FormattedMessage } = ReactIntl;

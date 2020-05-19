@@ -1,6 +1,7 @@
 import produce from 'immer';
 
 import { ProjectDO } from '@/models/project';
+
 import * as types from './types';
 
 type ProjectState = {

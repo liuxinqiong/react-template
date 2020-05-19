@@ -1,6 +1,7 @@
 import React from 'react';
 import { IntlProvider, useIntl } from 'react-intl';
 import { ConfigProvider } from 'antd';
+
 import {
   getLocale,
   _setLocaleContext,
@@ -11,6 +12,7 @@ import {
 
 const antdEn = require('antd/lib/locale-provider/en_US').default;
 const antdZh = require('antd/lib/locale-provider/zh_CN').default;
+
 const messageEn = require('@/locales/en-US').default;
 const messageZh = require('@/locales/zh-CN').default;
 
