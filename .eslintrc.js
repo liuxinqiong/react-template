@@ -10,7 +10,19 @@ module.exports = {
     'import/order': [
       'error',
       {
-        groups: ['builtin', 'internal', 'external', ['parent', 'sibling', 'index']],
+        groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']],
+        pathGroups: [
+          {
+            pattern: 'react*',
+            group: 'external',
+            position: 'before',
+          },
+          {
+            pattern: '@/**',
+            group: 'internal',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['builtin'],
         'newlines-between': 'always',
       },
     ],
