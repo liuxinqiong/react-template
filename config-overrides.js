@@ -1,5 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-param-reassign */
+const path = require('path');
+
 const {
   override,
   fixBabelImports,
@@ -9,7 +11,6 @@ const {
 } = require('customize-cra');
 const rewireReactHotLoader = require('react-app-rewire-hot-loader');
 const slash = require('slash');
-const path = require('path');
 
 module.exports = override(
   fixBabelImports('import', {
