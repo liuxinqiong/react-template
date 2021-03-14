@@ -63,17 +63,3 @@ npm run lint:fix
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-## 可能存在的问题
-
-### build out of memory
-当前模板不存在这个问题，应该是由于代码量很小的原因，实测当代码多了之后，可能会编译失败。
-
-查看了官方的 issue，讨论该问题有很多，由于该模板创建时，使用的是 `react-script@3.3.0`，尝试升级到当前最新版 `@3.4.1`，但问题并没有解决。
-
-但初步判断应该是 `@babel/core` 的在生成 `source-map` 时存在的问题，已经在新版本中解决，于是尝试手动升级 `@babel/core`，直接通过如下命令安装最新版
-```bash
-npm install @babel/core --save-dev
-```
-
-结果问题得到解决，查看升级后 `react-script@3.3.0` 后 `@babel/core` 的版本其实是有更新的，但目前不明白为什么直接升级 `react-script` 没有生效，考虑到该包应由 `react-script` 维护，因此模板目前未加入 `@babel/core` 依赖，而是选择跟踪这个问题，最终交由 `react-script` 来解决。

@@ -39,8 +39,8 @@ module.exports = override(
           const relativePath = match[1].replace('.less', '');
           const arr = slash(relativePath)
             .split('/')
-            .map(a => a.replace(/([A-Z])/g, '-$1'))
-            .map(a => a.toLowerCase());
+            .map((a) => a.replace(/([A-Z])/g, '-$1'))
+            .map((a) => a.toLowerCase());
           return `xkool${arr.join('-')}-${localName}`.replace(/--/g, '-');
         }
         return localName;
@@ -50,12 +50,12 @@ module.exports = override(
     delete css.options.localIdentName;
   }),
   // enable absolute import path for styles
-  config => {
+  (config) => {
     config.resolve.modules = [path.resolve(__dirname, 'src'), ...config.resolve.modules];
     return config;
   },
   // enable hot reload
-  config => {
+  (config) => {
     if (config.mode === 'development') {
       config.resolve.alias['react-dom'] = '@hot-loader/react-dom';
     }

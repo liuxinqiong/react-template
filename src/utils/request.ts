@@ -1,5 +1,6 @@
 import { notification } from 'antd';
-import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
+import type { AxiosResponse, AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 
 import environment, { isLocalEnvironment } from '@/environments';
 import { AppConfig } from '@/config/app';
@@ -48,7 +49,7 @@ function addRequestHeaderToken(config: AxiosRequestConfig) {
   }
 }
 
-request.interceptors.request.use(config => {
+request.interceptors.request.use((config) => {
   addRequestHeaderToken(config);
   config.params = StyleTransform.convertKeysToSnakeCase(config.params);
   if (!(config.data instanceof FormData)) {
@@ -59,7 +60,7 @@ request.interceptors.request.use(config => {
 
 request.interceptors.response.use(
   (response: AxiosResponse) => StyleTransform.convertKeysToCamelCase(response.data),
-  error => {
+  (error) => {
     const { response, data, message } = error;
     if (response && response.status) {
       // 如果后台有传回 message，则优先使用
@@ -81,10 +82,10 @@ request.interceptors.response.use(
   },
 );
 
-export function parseUrlWithUrlParams(url: string, params: { [key: string]: any }) {
+export function parseUrlWithUrlParams(url: string, params: Record<string, any>) {
   let parsedUrl = url;
   const keys = Object.keys(params);
-  keys.forEach(key => {
+  keys.forEach((key) => {
     const reg = new RegExp(`:${key}`, 'g');
     parsedUrl = parsedUrl.replace(reg, params[key]);
   });

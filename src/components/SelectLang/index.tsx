@@ -1,8 +1,9 @@
 import React from 'react';
+
 import classNames from 'classnames';
 import { GlobalOutlined } from '@ant-design/icons';
 import { Menu, Dropdown } from 'antd';
-import { ClickParam } from 'antd/es/menu';
+import type { MenuProps } from 'antd';
 
 import { intl, getLocale, setLocale } from '@/components/LocaleWrapper/locale';
 
@@ -13,10 +14,10 @@ const { formatMessage } = intl;
 interface SelectLangProps {
   className?: string;
 }
-const SelectLang: React.FC<SelectLangProps> = props => {
+const SelectLang: React.FC<SelectLangProps> = (props) => {
   const { className } = props;
   const selectedLang = getLocale();
-  const changeLang = ({ key }: ClickParam): void => setLocale(key, false);
+  const changeLang: MenuProps['onClick'] = ({ key }): void => setLocale(key as string, false);
   const locales = ['zh-CN', 'en-US'];
   const languageLabels = {
     'zh-CN': '简体中文',
@@ -28,7 +29,7 @@ const SelectLang: React.FC<SelectLangProps> = props => {
   };
   const langMenu = (
     <Menu className={styles.menu} selectedKeys={[selectedLang]} onClick={changeLang}>
-      {locales.map(locale => (
+      {locales.map((locale) => (
         <Menu.Item key={locale}>
           <span role="img" aria-label={languageLabels[locale]}>
             {languageIcons[locale]}

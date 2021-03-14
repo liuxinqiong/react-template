@@ -7,7 +7,7 @@ export class StyleTransform {
   }
 
   static snakeCaseToCamelCase(s: string) {
-    return s.replace(/(\_\w)/g, m => m[1].toUpperCase());
+    return s.replace(/(\_\w)/g, (m) => m[1].toUpperCase());
   }
 
   static convertKeysToCamelCase(o: any) {
@@ -20,7 +20,7 @@ export class StyleTransform {
     }
     if (TypeUtil.isObject(o)) {
       const result = {};
-      Object.keys(o).forEach(key => {
+      Object.keys(o).forEach((key) => {
         result[StyleTransform.snakeCaseToCamelCase(key)] = StyleTransform.convertKeysToCamelCase(
           o[key],
         );
@@ -40,7 +40,7 @@ export class StyleTransform {
     }
     if (TypeUtil.isObject(o)) {
       const result = {};
-      Object.keys(o).forEach(key => {
+      Object.keys(o).forEach((key) => {
         result[StyleTransform.camelCaseToSnakeCase(key)] = StyleTransform.convertKeysToSnakeCase(
           o[key],
         );

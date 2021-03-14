@@ -1,6 +1,6 @@
 import produce from 'immer';
 
-import { ProjectDO } from '@/models/project';
+import type { ProjectDO } from '@/models/project';
 
 import * as types from './types';
 
@@ -13,7 +13,7 @@ const initialState: ProjectState = {
 };
 
 function currentProject(state = initialState, action: { type: string; payload: any }) {
-  return produce(state, draft => {
+  return produce(state, (draft) => {
     switch (action.type) {
       case types.SET_CURRENT_PROJECT:
         draft.currentProject = action.payload;

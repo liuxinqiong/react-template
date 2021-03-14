@@ -3,7 +3,7 @@ import * as ReactIntl from 'react-intl';
 
 interface LocaleContextValue {
   locale: string;
-  reloadAppLocale: Function;
+  reloadAppLocale: () => void;
 }
 
 const localeKey = 'locale';

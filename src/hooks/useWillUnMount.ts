@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
-export default function useWillUnMount(unMountedFn: Function) {
-  const unMountedFnRef = useRef<Function | null>(null);
+export default function useWillUnMount(unMountedFn: () => void) {
+  const unMountedFnRef = useRef<(() => void) | null>(null);
   unMountedFnRef.current = unMountedFn;
   useEffect(
     () => () => {

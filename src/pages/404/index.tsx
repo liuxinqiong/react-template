@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Result } from 'antd';
 import { useIntl, FormattedMessage } from 'react-intl';
+
+import { Button, Result } from 'antd';
 
 export default function NotFountPage() {
   const intl = useIntl();

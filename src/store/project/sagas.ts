@@ -1,6 +1,7 @@
 import { takeLatest, put, call, fork } from 'redux-saga/effects';
 
 import ProjectApi from '@/api/project';
+import type { ProjectDO } from '@/models/project';
 
 import * as types from './types';
 
@@ -10,7 +11,7 @@ export interface GetProjectAction {
 }
 
 function* getProject(action: GetProjectAction) {
-  const currentProject = yield call(ProjectApi.getProjectById, action.payload);
+  const currentProject: ProjectDO = yield call(ProjectApi.getProjectById, action.payload);
   yield put({
     type: types.SET_CURRENT_PROJECT,
     payload: currentProject,

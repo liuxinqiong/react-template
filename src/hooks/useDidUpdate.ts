@@ -1,8 +1,9 @@
-import { useRef, useEffect, EffectCallback, DependencyList } from 'react';
+import type { EffectCallback, DependencyList } from 'react';
+import { useRef, useEffect } from 'react';
 
 const useDidUpdate: typeof useEffect = (updatedFn: EffectCallback, deps?: DependencyList) => {
   const didMountRef = useRef(false);
-  const updatedFnRef = useRef<Function | null>(null);
+  const updatedFnRef = useRef<(() => void) | null>(null);
   updatedFnRef.current = updatedFn;
 
   useEffect(() => {

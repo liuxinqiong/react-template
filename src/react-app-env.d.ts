@@ -2,6 +2,6 @@
 /// <reference types="react-scripts" />
 
 declare module '*.less' {
-  const classes: { readonly [key: string]: string };
+  const classes: Readonly<Record<string, string>>;
   export default classes;
 }
