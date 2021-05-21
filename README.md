@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Pull Project
+
+Because of submodules, please use `--recurse-submodules` parameter, example
+
+```bash
+git clone --recurse-submodules <main_project_url>
+```
+
 ## Environment Prepare
 
 Install `node_modules`:
@@ -64,5 +72,10 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
+## Bug Fix
+
+- declare eslint-plugin-import@2.22.1 manually is because of the bug of v2.23.2
+
 ## TODO
+
 - [ ] update request module

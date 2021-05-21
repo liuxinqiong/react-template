@@ -1,6 +1,5 @@
 import React from 'react';
 import { IntlProvider, useIntl } from 'react-intl';
-
 import { ConfigProvider } from 'antd';
 
 import {

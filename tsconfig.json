@@ -24,6 +24,11 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "src"
+    "src",
+    ".eslintrc.js",
+    "config-overrides.js"
+  ],
+  "exclude": [
+    "node_modules/*"
   ]
 }

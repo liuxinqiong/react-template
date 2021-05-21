@@ -4,9 +4,9 @@ import type { ProjectDO } from '@/models/project';
 
 import * as types from './types';
 
-type ProjectState = {
+interface ProjectState {
   currentProject: ProjectDO | null;
-};
+}
 
 const initialState: ProjectState = {
   currentProject: null,
