@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "eslint-plugin-import": "2.22.1",
     "@ant-design/icons": "4.5.0",
     "@csstools/normalize.css": "10.1.0",
     "antd": "4.13.1",
@@ -29,6 +30,9 @@
     "build": "npm run build:local",
     "build:local": "cross-env REACT_APP_STAGE=local react-app-rewired build",
     "build:dev": "cross-env REACT_APP_STAGE=dev react-app-rewired build",
+    "build:rc": "cross-env REACT_APP_STAGE=rc react-app-rewired build",
+    "build:hotfix": "cross-env REACT_APP_STAGE=hotfix react-app-rewired build",
+    "build:preview": "cross-env REACT_APP_STAGE=preview react-app-rewired build",
     "build:prod": "cross-env REACT_APP_STAGE=prod react-app-rewired build",
     "test": "react-app-rewired test",
     "test:coverage": "cross-env CI=true react-app-rewired test --coverage",
